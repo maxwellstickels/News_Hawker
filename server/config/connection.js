@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-// Using Mongoose to connect db to MongoDB
+//set up MongoDb.
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/articles', {
   useNewUrlParser: true,
   useUnifiedTopology: true,

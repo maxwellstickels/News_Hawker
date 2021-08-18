@@ -1,4 +1,3 @@
-//using JWT package for user authentication
 const jwt = require('jsonwebtoken');
 
 const secret = 'mysecretsshhhhh';
