@@ -7,6 +7,18 @@ const typeDefs = gql`
     username: String!
     email: String!
     password; String!
+    savedArticles: [Article]
+  }
+
+  type Article {
+    source
+    authors: [String]
+    title: String!
+    description: String!
+    url: String!
+    urlToImage: String
+    publishedAt: String
+    content: String!
   }
 
   type Auth {

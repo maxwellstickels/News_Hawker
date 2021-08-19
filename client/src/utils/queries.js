@@ -7,14 +7,17 @@ export const GET_ME = gql`
       username
       email
       password
-      savedBooks {
-        bookId
+      savedArticles {
+        source
         authors
-        description
         title
-        image
-        link
+        description
+        url
+        urlToImage
+        publishedAt
+        content
       }
     }
   }
 `;
+//add
