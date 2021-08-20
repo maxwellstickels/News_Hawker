@@ -11,58 +11,60 @@
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap" rel="stylesheet">
 </head>
 <body style="background-color: #595959">
-    <header>
-        <section style="position:absolute;top:0;display:inline;height:80px;padding-left:10%">
-            <lord-icon
-                src="https://cdn.lordicon.com/hpxruznz.json"
-                trigger="loop"
-                colors="primary:#ea5a5a,secondary:#08a88a"
-                style="width:80px;height:80px">
-            </lord-icon>
+    <div id="body-overlay">
+        <header>
+            <section class="wings">
+                <lord-icon
+                    src="https://cdn.lordicon.com/hpxruznz.json"
+                    trigger="loop"
+                    colors="primary:#ea5a5a,secondary:#08a88a"
+                    style="width:80px;height:80px">
+                </lord-icon>
+            </section>
+            <h1><i>News Hawker</i></h1>
+            <nav>
+                <ul>
+                    <li><a>Saved Stories</a></li>
+                    <li><a>Logout</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section id="search">
+            <section style="display:inline-block">
+                <h3 class="search-header"><b>SEARCH ARTICLE BY NAME:</b></h3>
+                <input id="topic-search">
+                <button id="topic-submit"><i>SUBMIT</i></button>
+            </section>
         </section>
-        <h1><i>News Hawker</i></h1>
-        <nav>
-            <ul>
-                <li><a>Saved Stories</a></li>
-                <li><a>Logout</a></li>
-            </ul>
-        </nav>
-    </header>
-    <section id="search">
-        <section style="display:inline-block">
-            <h3 style="color:#e62121;display:inline"><b>SEARCH ARTICLE BY NAME:</b></h3>
-            <input id="topic-search">
-            <button id="topic-submit"><i>SUBMIT</i></button>
-        </section>
-    </section>
-    <main>
-        <div class="article-box">
-            <section class="article-content">
-                <h4 class="article-title">Article Title</h4>
-                <p class="article-source">Article Source</p>
-                <p class="article-text">Article text article text article text article text article text article text article text article text article text article text article text article text article text article text article text article text.</p>
-            </section>
-            <img class="article-image" src="https://via.placeholder.com/120x478">
-        </div>
-        <div class="article-box">
-            <section class="article-content">
-                <h4 class="article-title saved">Article Title</h4>
-                <p class="article-source">Article Source</p>
-                <p class="article-text">Article text article text article text article text article text article text article text article text article text article text article text article text article text article text article text article text.</p>
-            </section>
-            <img class="article-image" src="https://via.placeholder.com/200x340">
-        </div>
-    </main>
-    <div style="height:60px"></div>
-    <footer>
-        <div style="padding-top:3px; border-top:1px solid #aa0000">
-            <section style="height: 90px; width: 100%; border-top:1px solid #882200">
-                <h2>
-                    Alejandro | Jessie | Max | Nikola
-                </h2>
-            </section>
-        </div>
-    </footer>
-    <script src="https://cdn.lordicon.com/libs/frhvbuzj/lord-icon-2.0.2.js"></script>
+        <main>
+            <div class="article-box">
+                <section class="article-content">
+                    <h4 class="article-title">Article Title</h4>
+                    <p class="article-source">Article Source</p>
+                    <p class="article-text">Article text article text article text article text article text article text article text article text article text article text article text article text article text article text article text article text.</p>
+                </section>
+                <img class="article-image" src="https://via.placeholder.com/120x478">
+            </div>
+            <div class="article-box">
+                <section class="article-content">
+                    <h4 class="article-title saved">Article Title</h4>
+                    <p class="article-source">Article Source</p>
+                    <p class="article-text">Article text article text article text article text article text article text article text article text article text article text article text article text article text article text article text article text.</p>
+                </section>
+                <img class="article-image" src="https://via.placeholder.com/200x340">
+            </div>
+        </main>
+        <div style="height:60px"></div>
+        <footer>
+            <div style="padding-top:3px; border-top:1px solid #aa0000">
+                <section style="height: 90px; width: 100%; border-top:1px solid #882200">
+                    <h2 style="margin-top:5px;">
+                        <a href="https://github.com/Delaalex/">Alejandro</a> | <a href="https://github.com/JG-77">Jessie</a> | <a href="https://github.com/maxwellstickels/">Max</a> | <a href="https://github.com/djony88">Nikola</a>
+                    </h2>
+                </section>
+            </div>
+        </footer>
+    </div>
+        <script src="https://cdn.lordicon.com/libs/frhvbuzj/lord-icon-2.0.2.js"></script>
 </body>
 </html>
