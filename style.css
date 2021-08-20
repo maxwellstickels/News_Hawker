@@ -4,6 +4,11 @@
     font-family: 'Rajdhani', sans-serif;
 }
 
+body > #body-overlay {
+    background-image: url("brick.jpeg");
+    background-repeat: repeat;
+}
+
 header {
     height:100px;
     background-color:black;
@@ -11,6 +16,14 @@ header {
     width:100%;
     border-bottom: 2px solid #cccccc;
     box-shadow: 0px -20px 15px -10px #860000 inset;
+}
+
+.wings {
+    position:absolute;
+    top:0;
+    display:inline;
+    height:80px;
+    left:10%;
 }
 
 h1 {
@@ -50,6 +63,11 @@ a:hover {
     justify-content: center;
 }
 
+.search-header {
+    color:#e62121;
+    display:inline;
+}
+
 #topic-search {
     font-size:large;
 
@@ -85,6 +103,7 @@ main {
     margin:10px auto;
     padding:10px;
 }
+
 .article-content {
     display:inline-block;
     vertical-align: top;
@@ -92,17 +111,26 @@ main {
 }
 
 .article-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     margin-top:15px;
     font-size:36px;
 }
 
 .article-source {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     font-size: 30px;
     color: #999999;
     line-height: 1;
 }
 
 .article-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     margin-top:20px;
     text-indent: 30px;
 }
@@ -134,9 +162,81 @@ footer {
     border-top: 2px solid #cccccc
 }
 
-@media screen and (max-width: 800px) {
+footer a {
+    color:gray;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color:white;
+}
+
+@media screen and (max-width: 900px) {
+    .wings {
+        left: 3%;
+    }
+    h1 {
+        padding-left: calc(3% + 90px);
+    }
     nav {
+        right: 3%;
+    }
+    .search-header {
         display: block;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    header {
+        height: 120px;
+    }
+    .wings {
+        left: calc(50vw - 230px);
+        top: -5px;
+    }
+    h1 {
+        padding-left: calc(50vw - 140px);
+        font-size: 60px;
+    }
+    nav {
+        position:static;
+        display: block;
+        text-align:center;
+    }
+
+    .article-box {
+        height: 210px;
+    }
+
+    .article-content {
+        width:calc(100%);
+    }
+    .article-title {
+        text-align:center;
+        margin-top:5px;
+        font-size:30px;
+    }
+    
+    .article-source {
+        font-size: 24px;
+        color: #999999;
+        text-align:center;
+        line-height: 1;
+    }
+    
+    .article-text {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-top: 0;
+        text-indent: 0;
+    }
+
+    .article-image {
+        display: block;
+        width: 70%;
+        height: 120px;
         margin: 0 auto;
     }
 }
