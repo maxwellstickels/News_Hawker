@@ -17,6 +17,21 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
   },
+
+  getArticle: async (parents, { search }, context) => {
+    try {
+      const response = await fetch(
+        `https://gnews.io/api/v4/search?q=${search}&token=7f1fd78c002cebd14e04533b292de6bb`
+      );
+
+      const data = await response.json();
+      const { articles = [] } = data;
+      return articles;
+    } catch (err) {
+      throw new Error(err);
+    }
+  },
+  
   Mutation: {
     //creates a new user with valid login token
     addUser: async (parents, args) => {

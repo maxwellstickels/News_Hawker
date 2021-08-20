@@ -13,7 +13,7 @@ export const GET_ME = gql`
         title
         description
         url
-        urlToImage
+        image
         publishedAt
         content
       }

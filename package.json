@@ -23,6 +23,8 @@
   "homepage": "https://github.com/maxwellstickels/news-hawker#readme",
   "dependencies": {
     "axios": "^0.21.1",
-    "concurrently": "^6.2.1"
+    "concurrently": "^6.2.1",
+    "got": "^11.8.2",
+    "node-fetch": "^2.6.1"
   }
 }

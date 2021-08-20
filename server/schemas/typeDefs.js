@@ -6,17 +6,16 @@ const typeDefs = gql`
     _id: ID!
     username: String!
     email: String!
-    password; String!
+    password: String!
     savedArticles: [Article]
   }
 
   type Article {
-    source : 
     authors: [String]
     title: String!
     description: String!
     url: String!
-    urlToImage: String
+    image: String
     publishedAt: String
     content: String!
   }
@@ -34,7 +33,11 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
    }
-}
+
+   type Query {
+    me(_id: String): [User]
+    getArticle(search: String!): [Article]
+  }
 `;
 
 module.exports = typeDefs;
