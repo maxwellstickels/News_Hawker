@@ -1,26 +1,28 @@
 // import logo from './logo.svg';
 // import './App.css';
+import React, { useState } from 'react';
+// import Search from './pages/Search';
+import { search } from './utils/API'
 
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
+
+  const [searchState, setSearchState] = useState('');
+
+  const onSearch = async () => {
+    let result = await search(searchState)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="search">
+        <div>
+            <h3><b>SEARCH ARTICLE BY NAME:</b></h3>
+            <input id="topic-search" onChange={(event)=> {
+              let { name, value } = event.target;
+
+              setSearchState(name, value)
+            }}/>
+            <button id="topic-submit" onClick={onSearch}><i>SUBMIT</i></button>
+        </div>
     </div>
   );
 }
