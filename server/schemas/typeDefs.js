@@ -7,6 +7,18 @@ const typeDefs = gql`
     username: String!
     email: String!
     password; String!
+    savedArticles: [Article]
+  }
+
+  type Article {
+    source : 
+    authors: [String]
+    title: String!
+    description: String!
+    url: String!
+    urlToImage: String
+    publishedAt: String
+    content: String!
   }
 
   type Auth {
@@ -14,7 +26,14 @@ const typeDefs = gql`
     user: User
   }
 
+  type Query {
+    me(_id: String): [User]
+  }
 
+   type Mutation {
+    addUser(username: String!, email: String!, password: String!): Auth
+    login(email: String!, password: String!): Auth
+   }
 }
 `;
 
