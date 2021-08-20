@@ -11,7 +11,7 @@ const typeDefs = gql`
   }
 
   type Article {
-    source
+    source : 
     authors: [String]
     title: String!
     description: String!
