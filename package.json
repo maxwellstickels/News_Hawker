@@ -26,6 +26,8 @@
     "concurrently": "^6.2.1",
     "got": "^11.8.2",
     "graphql": "^15.5.1",
+    "lord-icon-element": "^2.1.0",
+    "lottie-web": "^5.7.13",
     "node-fetch": "^2.6.1",
     "react-router-dom": "^5.2.0"
   }
