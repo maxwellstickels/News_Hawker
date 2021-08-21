@@ -22,15 +22,17 @@ export const GET_ME = gql`
 `;
 
 export const GET_ARTICLE = gql`
-query getArticle($search:String!){
-  getArticle(search:$search) {
-    title
-    description
-    content
-    url
-    image
-    publishedAt
-    authors
+  query getArticle($search: String!) {
+    getArticle(search: $search) {
+      title
+      description
+      content
+      url
+      image
+      publishedAt
+      authors
+    }
   }
-}
 `;
+
+//export const GET_SAVED_ARTICLES = gql``;

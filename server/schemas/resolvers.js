@@ -32,6 +32,20 @@ const resolvers = {
         throw new Error(err);
       }
     },
+
+    // getSavedArticle: async (parents, {_id}, context) => {
+    //   try {
+    //     const response = await fetch(
+    //       `https://gnews.io/api/v4/search?q=${search}&token=7f1fd78c002cebd14e04533b292de6bb`
+    //     );
+
+    //     const data = await response.json();
+    //     const { articles = [] } = data;
+    //     return articles;
+    //   } catch (err) {
+    //     throw new Error(err);
+    //   }
+    // },
   },
 
   Mutation: {
@@ -90,6 +104,10 @@ const resolvers = {
       //if user is logged in and has valid jwt then allow functionality
       if (context.user) {
         return await Article.create({ ...args, userID: context.user._id });
+        //do we need to add articel to set??
+        // {
+        //     $addToSet: { savedArticle: ?? },
+        //   },
       } //throw error if user isn't logged in
       throw new AuthenticationError('You need to be logged in!');
     },

@@ -49,4 +49,6 @@ const typeDefs = gql`
   }
 `;
 
+//getSavedArticles(_id: ID!): [Article]
+
 module.exports = typeDefs;
