@@ -1,6 +1,7 @@
 // import logo from './logo.svg';
-// import './App.css';
+import './App.css';
 import React, { useState } from 'react';
+import Footer from "./components/Footer";
 // import Search from './pages/Search';
 import { search } from './utils/API'
 
@@ -13,16 +14,10 @@ function App() {
     let result = await search(searchState)
   }
   return (
-    <div id="search">
-        <div>
-            <h3><b>SEARCH ARTICLE BY NAME:</b></h3>
-            <input id="topic-search" onChange={(event)=> {
-              let { name, value } = event.target;
-
-              setSearchState(name, value)
-            }}/>
-            <button id="topic-submit" onClick={onSearch}><i>SUBMIT</i></button>
-        </div>
+    <div className="body-overlay">
+      
+      <div style="height:60px"></div>
+      <Footer/>
     </div>
   );
 }
