@@ -45,7 +45,7 @@ function App() {
               <input id="topic-search" onChange={(event)=> {
                 let { name, value } = event.target;
                 console.log(name);
-                setSearchState(value)
+                setSearchState(value);
               }}/>
               <button id="topic-submit" onClick={onSearch}><i>SUBMIT</i></button>
           </div>
