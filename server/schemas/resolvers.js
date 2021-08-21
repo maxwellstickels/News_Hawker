@@ -88,7 +88,6 @@ const resolvers = {
     // logged in users can save articles
     saveArticle: async (parents, args, context) => {
       //if user is logged in and has valid jwt then allow functionality
-      //console.log(bookId, book);
       if (context.user) {
         return await Article.create({ ...args, userID: context.user._id });
       } //throw error if user isn't logged in

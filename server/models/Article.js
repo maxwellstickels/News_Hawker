@@ -2,14 +2,6 @@ const { Schema, model } = require('mongoose');
 
 //sub-schema for articles to be used in User model
 const articleSchema = new Schema({
-  // source: {
-  //   id: {
-  //     type: String,
-  //   },
-  //   name: {
-  //     type: String,
-  //   },
-  // },
   author: [
     {
       type: String,
@@ -45,4 +37,3 @@ const articleSchema = new Schema({
 const Article = model('Article', articleSchema);
 
 module.exports = Article;
-//module.exports = articleSchema;
