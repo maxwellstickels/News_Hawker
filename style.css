@@ -48,6 +48,11 @@ nav ul li {
     padding:0 10px;
 }
 
+header a, header a:visited, header a:active {
+    color:white;
+    text-decoration: none;
+}
+
 a:hover {
     color:red;
 }
