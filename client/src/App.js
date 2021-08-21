@@ -3,7 +3,6 @@ import { useLazyQuery } from '@apollo/client';
 import { GET_ARTICLE } from './utils/queries';
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
