@@ -8,7 +8,7 @@ console.log(BASEURL, APIKEY)
 
 async function search (query) {
     console.log(query)
-    let responseJson = await axios.get(`${BASEURL}q=${query}${APIKEY}`, 
+    let responseJson = await axios.get(`${BASEURL}/?q=${query}${APIKEY}`, 
     {headers: {
         'Access-Control-Allow-Origin': 'http://localhost:3000',
         withCredentials: true,

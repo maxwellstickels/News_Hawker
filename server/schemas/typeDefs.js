@@ -27,17 +27,13 @@ const typeDefs = gql`
 
   type Query {
     me(_id: String): [User]
+    getArticle(search: String!): [Article]
   }
 
    type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
    }
-
-   type Query {
-    me(_id: String): [User]
-    getArticle(search: String!): [Article]
-  }
 `;
 
 module.exports = typeDefs;
