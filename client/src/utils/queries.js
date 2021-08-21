@@ -13,10 +13,24 @@ export const GET_ME = gql`
         title
         description
         url
-        urlToImage
+        image
         publishedAt
         content
       }
     }
   }
+`;
+
+export const GET_ARTICLE = gql`
+query getArticle($search:String!){
+  getArticle(search:$search) {
+    title
+    description
+    content
+    url
+    image
+    publishedAt
+    authors
+  }
+}
 `;
