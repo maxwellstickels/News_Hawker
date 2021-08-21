@@ -1,34 +1,31 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-const articleSchema = require('./Article');
+//const articleSchema = require('./Article');
 
 //set up of user schema
-const userSchema = new Schema(
-  {
-    username: {
-      type: String,
-      required: true,
-      unique: true,
+const userSchema = new Schema({
+  username: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    match: [/.+@.+\..+/, 'Must use a valid email address'],
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  savedArticles: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Article',
     },
-    email: {
-      type: String,
-      required: true,
-      unique: true,
-      match: [/.+@.+\..+/, 'Must use a valid email address'],
-    },
-    password: {
-      type: String,
-      required: true,
-    },
-    savedArticles: [articleSchema],
-  }
-  // set this to use virtual below
-  //   {
-  //     toJSON: {
-  //       virtuals: true,
-  //     },
-  //   }
-);
+  ],
+});
 
 // Bcrypt hashes user password
 userSchema.pre('save', async function (next) {
