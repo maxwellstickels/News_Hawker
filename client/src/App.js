@@ -7,10 +7,10 @@ import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
 import NotFound from "./components/NotFound";
+import Signup from "./components/Signup";
+import Login from "./components/Login";
 // import Search from './components/Search';
 // import { search } from './utils/API'
-
-
 
 
 function App() {
@@ -45,15 +45,16 @@ function App() {
               <input id="topic-search" onChange={(event)=> {
                 let { name, value } = event.target;
                 console.log(name);
-                setSearchState(value)
+                setSearchState(value);
               }}/>
               <button id="topic-submit" onClick={onSearch}><i>SUBMIT</i></button>
           </div>
         </div>
         <Switch>
           <Route exact path='/' component={Main} />
-          {/*    <Route exact path='/login' component={Login} />
-          <Route exact path='/signup' component={Signup} />     */}
+          <Route exact path='/login' component={Login} />
+          <Route exact path='/signup' component={Signup} />
+          {/*<Route exact path='/saved' component={SavedArticles}/>*/}
           <Route render={() => <NotFound/>} />
         </Switch>
         <div style={spaceDiv}></div>
