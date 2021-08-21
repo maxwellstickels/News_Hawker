@@ -1,21 +1,43 @@
-// import logo from './logo.svg';
 import './App.css';
+import { useLazyQuery } from '@apollo/client';
+import { GET_ARTICLE } from './utils/queries';
 import React, { useState } from 'react';
+import Header from "./components/Header";
+import Main from "./components/Main";
 import Footer from "./components/Footer";
-// import Search from './pages/Search';
+import Search from './components/Search';
 import { search } from './utils/API'
+
+
 
 
 function App() {
 
+  const [getArticle, { data }] = useLazyQuery(GET_ARTICLE);
+
   const [searchState, setSearchState] = useState('');
 
   const onSearch = async () => {
-    let result = await search(searchState)
+    // let result = await search(searchState);
+    console.log(searchState)
+  
+    getArticle({variables: {search:searchState}});
   }
   return (
     <div className="body-overlay">
-      
+      <Header/>
+      <div id="search">
+        <div>
+            <h3><b>SEARCH ARTICLE BY NAME:</b></h3>
+            <input id="topic-search" onChange={(event)=> {
+              let { name, value } = event.target;
+
+              setSearchState(value)
+            }}/>
+            <button id="topic-submit" onClick={onSearch}><i>SUBMIT</i></button>
+        </div>
+      </div>
+      <Main/>
       <div style="height:60px"></div>
       <Footer/>
     </div>
