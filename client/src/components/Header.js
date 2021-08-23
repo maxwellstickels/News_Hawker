@@ -1,6 +1,6 @@
 import React from "react";
 import "../App.css";
-
+import { Link } from "react-router-dom";
 import { loadAnimation } from "lottie-web";
 import { defineLordIconElement } from "lord-icon-element";
 
@@ -15,11 +15,11 @@ function Header() {
                 style={{width: '80px', height:'80px'}}>
             </lord-icon>
         </section>
-        <h1><i>News Hawker</i></h1>
+        <h1><Link to="/" id="header-link"><i>News Hawker</i></Link></h1>
         <nav>
             <ul>
-                <li><a href="/">Saved Stories</a></li>
-                <li><a href="/">Logout</a></li>
+                <li><Link to="/saved">Saved Stories</Link></li>
+                <li><Link to="/login">Login</Link></li>
             </ul>
         </nav>
     </header>

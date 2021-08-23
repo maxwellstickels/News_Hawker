@@ -8,16 +8,16 @@ console.log(BASEURL, APIKEY)
 
 async function search (query) {
     console.log(query)
-    let responseJson = await axios.get(`${BASEURL}/?q=${query}${APIKEY}`, 
+    let response = await axios.get(`${BASEURL}/?q=${query}${APIKEY}`, 
     {headers: {
         'Access-Control-Allow-Origin': 'http://localhost:3000',
         withCredentials: true,
     }}
     )
 
-    let response = await responseJson.json();
+    let responseJSON = await response.json();
 
-    console.log(response)
+    console.log(responseJSON)
 }
 
-export { search }
+export default search;
