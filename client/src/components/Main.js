@@ -7,15 +7,16 @@ import React from 'react';
 function Main(props) {
   /*
     const [getArticle, { data }] = useLazyQuery(GET_ARTICLE);
-
+    console.log(data);
     const [searchState, setSearchState] = useState('');
 
     const onSearch = async () => {
-        console.log(searchState);
-        //let result = await search(searchState);
-        //await console.log(result);
+        // console.log(searchState);
+        // let result = await search(searchState);
+        // await console.log(result);
         
         getArticle({variables: {search:searchState}});
+        
     }
     */
 
