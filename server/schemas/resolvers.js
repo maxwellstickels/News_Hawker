@@ -22,7 +22,7 @@ const resolvers = {
     getArticle: async (parents, { search }, context) => {
       try {
         const response = await fetch(
-          `https://gnews.io/api/v4/search?q=${search}&token=7f1fd78c002cebd14e04533b292de6bb`
+          `https://gnews.io/api/v4/top-headlines?q=${search}&country=us&token=7f1fd78c002cebd14e04533b292de6bb`
         );
 
         const data = await response.json();
