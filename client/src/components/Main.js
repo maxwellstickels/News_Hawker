@@ -1,13 +1,15 @@
 import '../App.css';
-// import search from '../utils/API'
 import React, { useState } from 'react';
 import { GET_ARTICLE } from '../utils/queries';
 import { useLazyQuery } from '@apollo/client';
 
 
 function Main(props) {
+    var results;
     const [getArticle, { data }] = useLazyQuery(GET_ARTICLE);
-    if (data) console.log(data.getArticle);
+    if (data) {
+      results = data.getArticle;
+    }
     const [searchState, setSearchState] = useState('');
 
     const onSearch = async () => {
