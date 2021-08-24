@@ -31,13 +31,13 @@ function Signup(props) {
 
   return (
     <main>
-      <div>
-        <Link to="/login">← Go to Login</Link>
+      <div className="form-container">
         <h2>Signup</h2>
         <form onSubmit={handleFormSubmit}>
           <div>
             <label htmlFor="username">Username:</label>
             <input
+              className="spaced-input"
               placeholder="Username"
               name="username"
               type="username"
@@ -48,6 +48,7 @@ function Signup(props) {
           <div>
             <label htmlFor="email">Email:</label>
             <input
+              className="spaced-input"
               placeholder="youremail@test.com"
               name="email"
               type="email"
@@ -58,6 +59,7 @@ function Signup(props) {
           <div>
             <label htmlFor="pwd">Password:</label>
             <input
+              className="spaced-input"
               placeholder="******"
               name="password"
               type="password"
@@ -66,10 +68,12 @@ function Signup(props) {
             />
           </div>
           <div>
-            <button type="submit">Submit</button>
+            <button type="submit" className="account-submit"><i>SUBMIT</i></button>
           </div>
         </form>
       </div>
+      <p style={{textAlign: 'center', margin: "10px 0"}}><Link to="/login">Or log in here!</Link></p>
+      <div style={{height: "60px"}}></div>
     </main>
   );
 }

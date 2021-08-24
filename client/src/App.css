@@ -20,12 +20,15 @@ header {
   box-shadow: 0px -20px 15px -10px #860000 inset;
 }
 
-header a, header a:visited {
-  color:white;
+header a {
   text-decoration: none;
 }
 
-header a:hover {
+a, a:visited {
+  color:white;
+}
+
+a:hover {
   color:red;
 }
 
@@ -43,6 +46,10 @@ h1 {
   color:#ea5a5a;
   font-size:72px;
   padding-right:20px;
+}
+
+#header-link, #header-link:hover, #header-link:visited {
+  color:#ea5a5a;
 }
 
 h2 {
@@ -81,12 +88,14 @@ a:hover {
 
 #topic-search {
   font-size:large;
-
+  margin: 0 10px;
 }
 
 #topic-submit {
   font-size:large;
-  padding: 0 10px;
+  
+  padding-left: 5px;
+  padding-right: 10px;
   border: 1px solid #999999;
   border-radius: 2px;
   color:white;
@@ -181,6 +190,37 @@ footer a {
 footer a:hover {
   color:white;
 }
+
+/* Login / signup form styles */
+
+.spaced-input {
+  font-size:24px;
+  width: 40%;
+  margin-left: 10px;
+}
+
+.form-container {
+  text-align:center;
+  margin:0 auto;
+  font-size: 32px;
+  line-height: 2;
+}
+
+.account-submit {
+  font-size:36px;
+  padding-right: 10px;
+  border: 2px solid #999999;
+  border-radius: 5px;
+  color:white;
+  background-color: black;
+}
+
+.account-submit:hover {
+  color:black;
+  background-color: #cccccc;
+}
+
+/* Media Queries*/
 
 @media screen and (max-width: 900px) {
   .wings {
