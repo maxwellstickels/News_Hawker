@@ -5,11 +5,12 @@ import { useLazyQuery } from '@apollo/client';
 
 
 function Main(props) {
-    var results;
+    var results = [];
     const [getArticle, { data }] = useLazyQuery(GET_ARTICLE);
     if (data) {
       results = data.getArticle;
     }
+    console.log(results[1]);
     const [searchState, setSearchState] = useState('');
 
     const onSearch = async () => {
@@ -34,7 +35,20 @@ function Main(props) {
               </div>
             </section>
             <main>
-                <div className="article-box">
+              {results.map((article, i) => {
+                return (
+                  <div className="article-box" key={i}>
+                      <section className="article-content">
+                          <h4 className="article-title">{article.title}</h4>
+                          <p className="article-source">{article.publishedAt.substring(0, 10)}</p>
+                          <p className="article-text">{article.description}</p>
+                      </section>
+                      <img className="article-image" src={article.image} alt=""/>
+                  </div>
+                )
+              })}
+                {/*
+                  <div className="article-box">
                     <section className="article-content">
                         <h4 className="article-title">Article Title</h4>
                         <p className="article-source">Article Source</p>
@@ -50,6 +64,7 @@ function Main(props) {
                     </section>
                     <img className="article-image" src="https://via.placeholder.com/200x340" alt=""/>
                 </div>
+                */}
             </main>
         </div>
     );
