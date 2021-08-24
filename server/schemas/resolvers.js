@@ -19,6 +19,7 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
 
+    //uses gnews API to fetch top 10 articles in the US based on search
     getArticle: async (parents, { search }, context) => {
       try {
         const response = await fetch(
@@ -32,6 +33,17 @@ const resolvers = {
         throw new Error(err);
       }
     },
+    //finds all saved articles under userID
+    getSavedArticles: async (parents, args, context) => {
+      if (context.user) {
+        const articles = await Article.find({ userID: context.user._id });
+        console.log(articles);
+        if (articles) {
+          return articles;
+        }
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
   },
 
   Mutation: {
@@ -43,29 +55,6 @@ const resolvers = {
 
       return { token, user };
     },
-
-    //checks if user has entered correct email and password for log in
-    // login: async (parents, { email, password }) => {
-    //   const user = await User.findOne({ email });
-    //   if (user) {
-    //     const correctPw = await User.isCorrectPassword(password);
-
-    //     if (correctPw) {
-    //       let token = signToken(user);
-
-    //       if (token) {
-    //         return { user, token };
-    //       } else {
-    //         console.error('failed to create token');
-    //       }
-    //     } else {
-    //       throw new AuthenticationError('Invalid profile email or password!');
-    //     }
-    //   } else {
-    //     console.error('failed to find user. check seeds or create this user');
-    //     return;
-    //   }
-    // },
 
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
