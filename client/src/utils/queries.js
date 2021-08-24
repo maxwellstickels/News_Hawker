@@ -35,4 +35,16 @@ export const GET_ARTICLE = gql`
   }
 `;
 
-//export const GET_SAVED_ARTICLES = gql``;
+//export const GET_SAVED_ARTICLES = gql`
+// query getSavedArticle($_id: String) {
+//  getSavedArticle(_id: $_id) {
+//    title
+//    description
+//    content
+//    url
+//    image
+//    publishedAt
+//    authors
+// }
+//}
+//`;
