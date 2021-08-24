@@ -3,7 +3,7 @@ import axios from 'axios';
 const BASEURL = process.env.REACT_APP_BASEURL;
 const APIKEY = process.env.REACT_APP_APIKEY;
 
-console.log(BASEURL, APIKEY)
+console.log(BASEURL, APIKEY);
 
 
 async function search (query) {
@@ -17,7 +17,7 @@ async function search (query) {
 
     let responseJSON = await response.json();
 
-    console.log(responseJSON)
+    console.log(responseJSON);
 }
 
 export default search;
