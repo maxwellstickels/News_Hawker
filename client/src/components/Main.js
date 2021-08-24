@@ -1,13 +1,15 @@
 import '../App.css';
-// import search from '../utils/API'
-import { useLazyQuery } from '@apollo/client';
-import { GET_ARTICLE } from '../utils/queries';
 import React, { useState } from 'react';
+import { GET_ARTICLE } from '../utils/queries';
+import { useLazyQuery } from '@apollo/client';
+
 
 function Main(props) {
-
+    var results;
     const [getArticle, { data }] = useLazyQuery(GET_ARTICLE);
-    console.log(data);
+    if (data) {
+      results = data.getArticle;
+    }
     const [searchState, setSearchState] = useState('');
 
     const onSearch = async () => {
@@ -22,14 +24,14 @@ function Main(props) {
     return (
         <div>
             <section id="search">
-            <div style={{display: "inline-block"}}>
-                <h3 className="search-header"><b>SEARCH ARTICLE BY NAME:</b></h3>
-                <input id="topic-search" onChange={(event)=> {
-                    let { name, value } = event.target;
-                    setSearchState(value)
-                }}/>
-                <button id="topic-submit" onClick={onSearch}><i>SUBMIT</i></button>
-            </div>
+              <div style={{display: "inline-block"}}>
+                  <h3 className="search-header"><b>SEARCH ARTICLE BY NAME:</b></h3>
+                  <input id="topic-search" onChange={(event)=> {
+                      let { name, value } = event.target;
+                      setSearchState(value)
+                  }}/>
+                  <button id="topic-submit" onClick={onSearch}><i>SUBMIT</i></button>
+              </div>
             </section>
             <main>
                 <div className="article-box">

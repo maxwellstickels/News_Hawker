@@ -8,11 +8,10 @@ import NotFound from "./components/NotFound";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import SavedArticles from "./components/SavedArticles";
-// import { search } from './utils/API'
 
 
 function App() {
-  
+
   const spaceDiv = {
     height: "60px"
   };
