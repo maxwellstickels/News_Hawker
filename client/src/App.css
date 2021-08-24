@@ -108,6 +108,7 @@ a:hover {
 }
 
 main {
+  min-height: 250px;
   border:1px solid #cccccc;
   margin:30px auto;
   width:80%;
