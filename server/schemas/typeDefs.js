@@ -9,10 +9,15 @@ const typeDefs = gql`
     savedArticles: [Article]
   }
 
+  type Source {
+    name: String
+    url: String
+  }
+
   type Article {
     _id: ID!
+    source: Source
     userID: ID
-    authors: [String]
     title: String!
     description: String!
     url: String!
@@ -29,7 +34,7 @@ const typeDefs = gql`
   type Query {
     me(_id: String): [User]
     getArticle(search: String!): [Article]
-    getSavedArticles(_id: ID!): [Article]
+    getSavedArticles: [Article]
   }
 
   type Mutation {
@@ -37,7 +42,6 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
 
     saveArticle(
-      authors: [String]
       title: String!
       description: String!
       url: String!
@@ -49,6 +53,5 @@ const typeDefs = gql`
     removeArticle(_id: ID!): Article
   }
 `;
-//{ "email": "sample3@email.com", "password": "sample3"}
 
 module.exports = typeDefs;
