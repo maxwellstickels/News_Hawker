@@ -15,9 +15,14 @@ function SavedArticles(props) {
 
   if(!userData?.username) {
     return (
-      <h4>
-        You need to be logged in to see this page. Use the navigation links above to sign up or log in!
-      </h4>
+        <main>
+            <h4 style={{textAlign:"center", marginTop:"75px"}}>
+                You need to be logged in to see this page.
+            </h4>
+            <h4 style={{textAlign:"center", marginTop:"30px"}}>
+                Use the navigation links above to sign up or log in!
+            </h4>
+        </main>
     );
   }
 
