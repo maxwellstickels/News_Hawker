@@ -12,7 +12,9 @@ function SavedArticles(props) {
                     <p className="article-source">Article Source</p>
                     <p className="article-text">Article text article text article text article text article text article text article text article text article text article text article text article text article text article text article text article text.</p>
                 </section>
-                <img className="article-image" src="https://via.placeholder.com/120x478" alt=""/>
+                <div className="article-image" style={{backgroundImage:"url(https://via.placeholder.com/120x478)"}}>
+                        <div className="article-save">Save</div>
+                </div>
             </div>
             <div className="article-box">
                 <section className="article-content">
@@ -20,7 +22,9 @@ function SavedArticles(props) {
                     <p className="article-source">Article Source</p>
                     <p className="article-text">Article text article text article text article text article text article text article text article text article text article text article text article text article text article text article text article text.</p>
                 </section>
-                <img className="article-image" src="https://via.placeholder.com/200x340" alt=""/>
+                <div className="article-image" style={{backgroundImage:"url(https://via.placeholder.com/200x340)"}}>
+                        <div className="article-save">Save</div>
+                </div>
             </div>
         </main>
     );

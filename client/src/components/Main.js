@@ -1,6 +1,5 @@
 import '../App.css';
 import React, { useState } from 'react';
-import { Link } from "react-router-dom";
 import { GET_ARTICLE } from '../utils/queries';
 import { useLazyQuery } from '@apollo/client';
 
@@ -17,7 +16,7 @@ function Main(props) {
         // console.log(searchState);
         // let result = await search(searchState);
         // await console.log(result);
-        
+        console.log(searchState)
         getArticle({variables: {search:searchState}});
         
     }

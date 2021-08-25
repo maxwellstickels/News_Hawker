@@ -162,6 +162,7 @@ main {
   height: 150px;
   margin-top: 15px;
   background-size:cover;
+  background-position: center;
 }
 
 .article-save {
@@ -169,7 +170,8 @@ main {
   font-size:16px;
   width:100%;
   background-color: rgba(0, 0, 0, 0.5);
-  vertical-align: text-bottom;
+  position: relative;
+  top: 130px;
   text-align:center;
 }
 
@@ -299,5 +301,9 @@ footer a:hover {
       width: 70%;
       height: 120px;
       margin: 0 auto;
+  }
+
+  .article-save {
+      top: 100px;
   }
 }
