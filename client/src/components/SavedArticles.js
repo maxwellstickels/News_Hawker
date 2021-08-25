@@ -8,16 +8,20 @@ import { removeNewsId } from '../utils/localStorage';
 
 
 function SavedArticles(props) {
-
+  var results = [];
   const { loading, data } = useLazyQuery(GET_ME);
   const [deleteArticle] = useMutation(REMOVE_ARTICLE);
   const userData = data?.me || {};
 
   if(!userData?.username) {
     return (
-      <h4>
-        You need to be logged in to see this page. Use the navigation links above to sign up or log in!
-      </h4>
+        <div className="article-box">
+            <section className="article-content">
+                <h4 style={{ color: 'white', fontSize: 25 , display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                    You need to be logged in to see this page. Use the navigation links above to sign up or log in!
+                </h4>            
+            </section>            
+        </div>
     );
   }
 
@@ -52,24 +56,25 @@ function SavedArticles(props) {
   }
 
     return (
+    <div>
+            
+        <button id="topic-submit" onClick={handleDeleteArticle}></button>
+
         <main>
-            <div className="article-box">
-                <section className="article-content">
-                    <h4 className="article-title">Article Title</h4>
-                    <p className="article-source">Article Source</p>
-                    <p className="article-text">Article text article text article text article text article text article text article text article text article text article text article text article text article text article text article text article text.</p>
-                </section>
-                <img className="article-image" src="https://via.placeholder.com/120x478" alt=""/>
-            </div>
-            <div className="article-box">
-                <section className="article-content">
-                    <h4 className="article-title saved">Article Title</h4>
-                    <p className="article-source">Article Source</p>
-                    <p className="article-text">Article text article text article text article text article text article text article text article text article text article text article text article text article text article text article text article text.</p>
-                </section>
-                <img className="article-image" src="https://via.placeholder.com/200x340" alt=""/>
-            </div>
+        {results.map((article, i) => {
+            return (
+                <div className="article-box" key={i}>
+                    <section className="article-content">
+                        <h4 className="article-title">{article.title}</h4>
+                            <p className="article-source">{article.publishedAt.substring(0, 10)}</p>
+                            <p className="article-text">{article.description}</p>
+                    </section>
+                        <img className="article-image" src={article.image} alt=""/>
+                </div>
+            )
+            })}
         </main>
+    </div>
     );
 };
 
