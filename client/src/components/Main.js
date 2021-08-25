@@ -1,8 +1,10 @@
 import '../App.css';
 import React, { useState } from 'react';
+import Auth from '../utils/auth';
 import { GET_ARTICLE } from '../utils/queries';
 import { useLazyQuery } from '@apollo/client';
-
+import { getSavedNews, savedNewsId } from '../utils/localStorage';
+// import { SAVE_ARTICLE } from '../utils/mutations'
 
 function Main(props) {
     var results = [];
@@ -10,17 +12,39 @@ function Main(props) {
     if (data) {
       results = data.getArticle;
     }
-    console.log(results[1]);
     const [searchState, setSearchState] = useState('');
+    const [savedNews, setSavedNews] = useState(getSavedNews());
 
     const onSearch = async () => {
-        // console.log(searchState);
-        // let result = await search(searchState);
-        // await console.log(result);
-        
+        console.log(searchState);
         getArticle({variables: {search:searchState}});
         
     }
+
+    const handleSaveArticle = async (articleId) => {
+      const articleToSave = results.find((article) => article.id === articleId);
+  
+      // get token
+      const token = Auth.loggedIn() ? Auth.getToken() : null;
+  
+      if (!token) {
+        return false;
+      }
+  
+      try {
+        /* Think this is my problem. What should I actually be calling to save the article? Should I be using the mutation imported on line 7? */
+        const response = await savedNewsId(articleToSave, token);
+  
+        if (!response.ok) {
+          throw new Error('something went wrong!');
+        }
+  
+        // if book successfully saves to user's account, save book id to state
+        setSavedNews([...savedNews, articleToSave.id]);
+      } catch (err) {
+        console.error(err);
+      }
+    };
 
     return (
         <div>
@@ -35,66 +59,28 @@ function Main(props) {
               </div>
             </section>
             <main>
+              <h2 style= {{margin:"10px 0"}}>
+                {results.length ? "Your results:" : "Search for a topic to get the top 10 results!"}
+              </h2>
               {results.map((article, i) => {
                 return (
                   <div className="article-box" key={i}>
                       <section className="article-content">
-                          <h4 className="article-title">{article.title}</h4>
+                          <h4 className="article-title"><a href={article.url}>{article.title}</a></h4>
                           <p className="article-source">{article.publishedAt.substring(0, 10)}</p>
                           <p className="article-text">{article.description}</p>
                       </section>
-                      <img className="article-image" src={article.image} alt=""/>
+                      <div className="article-image" style={{backgroundImage:"url(" + article.image + ")"}} onClick={() => handleSaveArticle(article.id)}>
+                        <div className="article-save">{savedNews?.some((savedArticleId) => savedArticleId === article.id)
+                        ? 'Saved ✓'
+                        : 'Save'}</div>
+                      </div>
                   </div>
                 )
               })}
-                {/*
-                  <div className="article-box">
-                    <section className="article-content">
-                        <h4 className="article-title">Article Title</h4>
-                        <p className="article-source">Article Source</p>
-                        <p className="article-text">Article text article text article text article text article text article text article text article text article text article text article text article text article text article text article text article text.</p>
-                    </section>
-                    <img className="article-image" src="https://via.placeholder.com/120x478" alt=""/>
-                </div>
-                <div className="article-box">
-                    <section className="article-content">
-                        <h4 className="article-title saved">Article Title</h4>
-                        <p className="article-source">Article Source</p>
-                        <p className="article-text">Article text article text article text article text article text article text article text article text article text article text article text article text article text article text article text article text.</p>
-                    </section>
-                    <img className="article-image" src="https://via.placeholder.com/200x340" alt=""/>
-                </div>
-                */}
             </main>
         </div>
     );
 };
 
 export default Main;
-
-/*
-{searchedBooks.map((book) => {
-            return (
-              <Card key={book.bookId} border='dark'>
-                {book.image ? (
-                  <Card.Img src={book.image} alt={`The cover for ${book.title}`} variant='top' />
-                ) : null}
-                <Card.Body>
-                  <Card.Title>{book.title}</Card.Title>
-                  <p className='small'>Authors: {book.authors}</p>
-                  <Card.Text>{book.description}</Card.Text>
-                  {Auth.loggedIn() && (
-                    <Button
-                      disabled={savedBookIds?.some((savedBookId) => savedBookId === book.bookId)}
-                      className='btn-block btn-info'
-                      onClick={() => handleSaveBook(book.bookId)}>
-                      {savedBookIds?.some((savedBookId) => savedBookId === book.bookId)
-                        ? 'This book has already been saved!'
-                        : 'Save this Book!'}
-                    </Button>
-                  )}
-                </Card.Body>
-              </Card>
-            );
-          })}
-*/

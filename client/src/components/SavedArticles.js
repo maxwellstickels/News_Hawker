@@ -15,13 +15,14 @@ function SavedArticles(props) {
 
   if(!userData?.username) {
     return (
-        <div className="article-box">
-            <section className="article-content">
-                <h4 style={{ color: 'white', fontSize: 25 , display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                    You need to be logged in to see this page. Use the navigation links above to sign up or log in!
-                </h4>            
-            </section>            
-        </div>
+        <main>
+            <h4 style={{textAlign:"center", marginTop:"75px"}}>
+                You need to be logged in to see this page.
+            </h4>
+            <h4 style={{textAlign:"center", marginTop:"30px"}}>
+                Use the navigation links above to sign up or log in!
+            </h4>
+        </main>
     );
   }
 
