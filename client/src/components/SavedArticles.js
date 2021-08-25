@@ -8,7 +8,7 @@ import { removeNewsId } from '../utils/localStorage';
 
 
 function SavedArticles(props) {
-
+  var results = [];
   const { loading, data } = useLazyQuery(GET_ME);
   const [deleteArticle] = useMutation(REMOVE_ARTICLE);
   const userData = data?.me || {};
@@ -57,28 +57,25 @@ function SavedArticles(props) {
   }
 
     return (
+    <div>
+            
+        <button id="topic-submit" onClick={handleDeleteArticle}></button>
+
         <main>
-            <div className="article-box">
-                <section className="article-content">
-                    <h4 className="article-title">Article Title</h4>
-                    <p className="article-source">Article Source</p>
-                    <p className="article-text">Article text article text article text article text article text article text article text article text article text article text article text article text article text article text article text article text.</p>
-                </section>
-                <div className="article-image" style={{backgroundImage:"url(https://via.placeholder.com/120x478)"}}>
-                        <div className="article-save">Save</div>
+        {results.map((article, i) => {
+            return (
+                <div className="article-box" key={i}>
+                    <section className="article-content">
+                        <h4 className="article-title">{article.title}</h4>
+                            <p className="article-source">{article.publishedAt.substring(0, 10)}</p>
+                            <p className="article-text">{article.description}</p>
+                    </section>
+                        <img className="article-image" src={article.image} alt=""/>
                 </div>
-            </div>
-            <div className="article-box">
-                <section className="article-content">
-                    <h4 className="article-title saved">Article Title</h4>
-                    <p className="article-source">Article Source</p>
-                    <p className="article-text">Article text article text article text article text article text article text article text article text article text article text article text article text article text article text article text article text.</p>
-                </section>
-                <div className="article-image" style={{backgroundImage:"url(https://via.placeholder.com/200x340)"}}>
-                        <div className="article-save">Save</div>
-                </div>
-            </div>
+            )
+            })}
         </main>
+    </div>
     );
 };
 
