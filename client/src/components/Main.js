@@ -2,13 +2,14 @@ import '../App.css';
 import React, { useState } from 'react';
 import Auth from '../utils/auth';
 import { GET_ARTICLE } from '../utils/queries';
-import { useLazyQuery } from '@apollo/client';
+import { useLazyQuery, useMutation } from '@apollo/client';
 import { getSavedNews, savedNewsId } from '../utils/localStorage';
-// import { SAVE_ARTICLE } from '../utils/mutations'
+import { SAVE_ARTICLE } from '../utils/mutations';
 
 function Main(props) {
     var results = [];
     const [getArticle, { data }] = useLazyQuery(GET_ARTICLE);
+    const [saveArticle] = useMutation(SAVE_ARTICLE);
     if (data) {
       results = data.getArticle;
     }
@@ -16,7 +17,6 @@ function Main(props) {
     const [savedNews, setSavedNews] = useState(getSavedNews());
 
     const onSearch = async () => {
-        console.log(searchState);
         getArticle({variables: {search:searchState}});
         
     }
@@ -33,7 +33,7 @@ function Main(props) {
   
       try {
         /* Think this is my problem. What should I actually be calling to save the article? Should I be using the mutation imported on line 7? */
-        const response = await savedNewsId(articleToSave, token);
+        const response = await saveArticle(articleToSave);
   
         if (!response.ok) {
           throw new Error('something went wrong!');
