@@ -20,13 +20,13 @@ News Hawker is a simple, streamlined web application which allows users to searc
 The provided website was designed with Javascript (2020 Build) in Visual Studio Code 1.58.2. In addition, the website makes use of the MERN full-stack option, in which Mongoose, Express, React, and Node libraries are connected via an Apollo server. The API used to search news articles is [GNews](https://gnews.io/).
 
 
-![Screenshoot](client\public\1.png)
+![Screenshot](./client/public/1.png)
 
 
-![Screenshoot](client\public\2.png)
+![Screenshot](./client/public/2.png)
 
 
-![Screenshoot](client\public\3.png)
+![Screenshot](./client/public/3.png)
 
 
-![Screenshoot](client\public\4.png)
+![Screenshot](./client/public/4.png)
