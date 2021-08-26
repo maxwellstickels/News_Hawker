@@ -9,11 +9,6 @@ const typeDefs = gql`
     savedArticles: [Article]
   }
 
-  type Source {
-    name: String
-    url: String
-  }
-
   type Article {
     _id: ID!
     title: String!
