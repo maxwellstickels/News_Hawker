@@ -14,10 +14,6 @@ export const GET_ME = gql`
         image
         publishedAt
         content
-        source {
-          name
-          url
-        }
       }
     }
   }
@@ -26,20 +22,12 @@ export const GET_ME = gql`
 export const GET_ARTICLE = gql`
   query getArticle($search: String!) {
     getArticle(search: $search) {
-      source {
-        name
-        url
-      }
       title
       description
       content
       url
       image
       publishedAt
-      source {
-        name
-        url
-      }
     }
   }
 `;
@@ -53,10 +41,6 @@ export const GET_SAVED_ARTICLES = gql`
       url
       image
       publishedAt
-      source {
-        name
-        url
-      }
     }
   }
 `;
