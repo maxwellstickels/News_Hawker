@@ -75,11 +75,17 @@ const resolvers = {
     },
 
     // logged in users can save articles
-    saveArticle: async (parents, args, context) => {
-      //if user is logged in and has valid jwt then allow functionality
+    saveArticle: async (parent, { articleData }, context) => {
       if (context.user) {
-        return await Article.create({ ...args, userID: context.user._id });
-      } //throw error if user isn't logged in
+        const updatedUser = await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $push: { savedArticles: articleData } },
+          { new: true }
+        );
+
+        return updatedUser;
+      }
+      //throw error if user isn't logged in
       throw new AuthenticationError('You need to be logged in!');
     },
 

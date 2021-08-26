@@ -9,15 +9,8 @@ const typeDefs = gql`
     savedArticles: [Article]
   }
 
-  type Source {
-    name: String
-    url: String
-  }
-
   type Article {
     _id: ID!
-    source: Source
-    userID: ID
     title: String!
     description: String!
     url: String!
@@ -36,19 +29,20 @@ const typeDefs = gql`
     getArticle(search: String!): [Article]
     getSavedArticles: [Article]
   }
-
+  input ArticleInput {
+    _id: ID!
+    title: String!
+    description: String!
+    url: String!
+    image: String
+    publishedAt: String
+    content: String!
+  }
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
 
-    saveArticle(
-      title: String!
-      description: String!
-      url: String!
-      image: String
-      publishedAt: String
-      content: String!
-    ): Article
+    saveArticle(articleData: ArticleInput!): User
 
     removeArticle(_id: ID!): Article
   }
