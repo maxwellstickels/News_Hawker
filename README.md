@@ -2,6 +2,7 @@
 
 UCSD-SD-FSF-PT-03-2021-U-C
 
+
 [GitHub Link](https://github.com/maxwellstickels/news-hawker)
 
 [Deployed App](https://news-hawker.herokuapp.com/)
